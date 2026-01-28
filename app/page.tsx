@@ -7,7 +7,12 @@ import { useSearchParams } from 'next/navigation';
 import { products } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ProductCandyScroll from '@/components/ProductCandyScroll';
+import dynamic from 'next/dynamic';
+
+const ProductCandyScroll = dynamic(() => import('@/components/ProductCandyScroll'), {
+  ssr: false,
+  loading: () => <div className="h-screen w-full bg-gray-100 dark:bg-gray-900 animate-pulse" />
+});
 import ProductTextOverlays from '@/components/ProductTextOverlays';
 
 
@@ -26,7 +31,9 @@ function HomeContent() {
   }, [searchParams]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   }, [currentIndex]);
 
   const nextProduct = () => {
