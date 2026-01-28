@@ -99,7 +99,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-                    <p>© {new Date().getFullYear()} CANZZY. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} kapoor food products. All rights reserved.</p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">Terms of Service</a>

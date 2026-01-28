@@ -90,8 +90,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h4 className="font-bold">Email Us</h4>
-                                        <p className="text-gray-600 dark:text-gray-400">hello@canzzy.com</p>
-                                        <p className="text-gray-600 dark:text-gray-400">wholesale@canzzy.com</p>
+                                        <p className="text-gray-600 dark:text-gray-400">gautamkapoor512@gmail.com</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
@@ -100,7 +99,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h4 className="font-bold">Call Us</h4>
-                                        <p className="text-gray-600 dark:text-gray-400">+91 98765 43210</p>
+                                        <p className="text-gray-600 dark:text-gray-400">+91 9354502422</p>
                                         <p className="text-gray-500 text-sm">Mon-Fri, 9am - 6pm IST</p>
                                     </div>
                                 </div>
@@ -110,8 +109,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h4 className="font-bold">Headquarters</h4>
-                                        <p className="text-gray-600 dark:text-gray-400">123 Flavor Street, Candy Industrial Area,</p>
-                                        <p className="text-gray-600 dark:text-gray-400">Mumbai, Maharashtra - 400001</p>
+                                        <p className="text-gray-600 dark:text-gray-400">A-26, shiv bux park nangloi,</p>
+                                        <p className="text-gray-600 dark:text-gray-400">delhi-110041</p>
                                     </div>
                                 </div>
                             </div>

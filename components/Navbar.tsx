@@ -66,7 +66,7 @@ export default function Navbar() {
                             href="https://wa.me/919354502422"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hidden md:flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-2 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transform hover:-translate-y-0.5"
+                            className="hidden md:flex items-center gap-2 bg-lime-500 hover:bg-lime-400 text-black px-6 py-2 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(132,204,22,0.3)] hover:shadow-[0_0_30px_rgba(132,204,22,0.5)] transform hover:-translate-y-0.5"
                         >
                             <span>WhatsApp</span>
                             <MessageCircle size={18} />
@@ -104,7 +104,7 @@ export default function Navbar() {
                             href="https://wa.me/919354502422"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-[#25D366] text-white py-3 rounded-full font-bold mt-4 flex items-center justify-center gap-2"
+                            className="w-full bg-lime-500 text-black py-3 rounded-full font-bold mt-4 flex items-center justify-center gap-2"
                         >
                             <span>WhatsApp Us</span>
                             <MessageCircle size={20} />
