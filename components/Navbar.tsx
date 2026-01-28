@@ -90,11 +90,10 @@ export default function Navbar() {
                 >
                     <div className="px-4 py-8 flex flex-col gap-6 items-center">
                         {[
-                            // 'Shop'
                             'Our Story', 'Flavors', 'Contact'].map((item) => (
                                 <a
                                     key={item}
-                                    href={`#${item.toLowerCase()}`}
+                                    href={item === 'Flavors' ? '/flavors' : item === 'Our Story' ? '/our-story' : `/#${item.toLowerCase()}`}
                                     className="text-xl text-white font-medium"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
