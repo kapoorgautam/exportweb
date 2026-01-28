@@ -85,29 +85,36 @@ export default function Navbar() {
             {mobileMenuOpen && (
                 <motion.div
                     initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10"
+                    animate={{ opacity: 1, height: '100vh' }}
+                    className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-xl z-[60] pt-20"
                 >
-                    <div className="px-4 py-8 flex flex-col gap-6 items-center">
-                        {[
-                            'Our Story', 'Flavors', 'Contact'].map((item) => (
-                                <a
-                                    key={item}
-                                    href={item === 'Flavors' ? '/flavors' : item === 'Our Story' ? '/our-story' : `/#${item.toLowerCase()}`}
-                                    className="text-xl text-white font-medium"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    {item}
-                                </a>
-                            ))}
+                    <button
+                        className="absolute top-6 right-4 text-white p-2"
+                        onClick={() => setMobileMenuOpen(false)}
+                        aria-label="Close menu"
+                    >
+                        <X size={32} />
+                    </button>
+
+                    <div className="px-6 py-8 flex flex-col gap-8 items-center justify-center h-full">
+                        {['Our Story', 'Flavors', 'Contact'].map((item) => (
+                            <a
+                                key={item}
+                                href={item === 'Flavors' ? '/flavors' : item === 'Our Story' ? '/our-story' : `/#${item.toLowerCase()}`}
+                                className="text-3xl text-white font-bold tracking-tight hover:text-lime-400 transition-colors py-2"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                {item}
+                            </a>
+                        ))}
                         <a
                             href="https://wa.me/919354502422"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-lime-500 text-black py-3 rounded-full font-bold mt-4 flex items-center justify-center gap-2"
+                            className="w-full max-w-xs bg-lime-500 text-black py-4 rounded-full font-bold mt-8 flex items-center justify-center gap-2 text-lg shadow-[0_0_20px_rgba(132,204,22,0.4)]"
                         >
                             <span>WhatsApp Us</span>
-                            <MessageCircle size={20} />
+                            <MessageCircle size={24} />
                         </a>
                     </div>
                 </motion.div>
