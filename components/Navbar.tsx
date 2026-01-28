@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Menu, X, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -52,16 +53,19 @@ export default function Navbar() {
                                     {item}
                                 </a>
                             ))}
-                        <a
+                        <Link
                             href="/contact"
                             className="text-gray-700 dark:text-white/80 hover:text-lime-600 dark:hover:text-lime-400 transition-colors text-sm font-medium tracking-wide uppercase"
                         >
                             Contact
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Actions */}
                     <div className="flex items-center gap-4">
+                        <div className="hidden md:block">
+                            <ThemeToggle />
+                        </div>
                         <a
                             href="https://wa.me/919354502422"
                             target="_blank"
@@ -107,6 +111,12 @@ export default function Navbar() {
                                 {item}
                             </a>
                         ))}
+
+                        <div className="flex items-center gap-4 mt-4">
+                            <span className="text-white/60 text-sm font-medium">Theme</span>
+                            <ThemeToggle />
+                        </div>
+
                         <a
                             href="https://wa.me/919354502422"
                             target="_blank"

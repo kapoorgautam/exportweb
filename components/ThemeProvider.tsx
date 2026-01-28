@@ -8,21 +8,22 @@ const ThemeContext = createContext<{
     theme: Theme;
     toggleTheme: () => void;
 }>({
-    theme: 'dark',
+    theme: 'light',
     toggleTheme: () => { },
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-    const [theme, setTheme] = useState<Theme>('dark');
+    const [theme, setTheme] = useState<Theme>('light');
 
-    // Initialize theme (default to dark as per original design)
+    // Initialize theme (default to light)
     useEffect(() => {
         const saved = localStorage.getItem('theme') as Theme;
         if (saved) {
             setTheme(saved);
             document.documentElement.classList.toggle('dark', saved === 'dark');
         } else {
-            document.documentElement.classList.add('dark');
+            // Default is now light, so ensure dark class is removed if no preference
+            document.documentElement.classList.remove('dark');
         }
     }, []);
 

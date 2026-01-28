@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Package, FlaskConical, CheckCircle, AlertCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ThemeToggle from '@/components/ThemeToggle';
+
 
 type InquiryType = 'general' | 'bulk' | 'custom';
 
@@ -47,7 +47,7 @@ export default function ContactPage() {
     return (
         <main className="bg-gray-50 dark:bg-black text-gray-900 dark:text-white min-h-screen transition-colors duration-500 selection:bg-lime-500 selection:text-white">
             <Navbar />
-            <ThemeToggle />
+
 
             {/* Hero Section */}
             <section className="pt-32 pb-20 px-4 relative overflow-hidden">

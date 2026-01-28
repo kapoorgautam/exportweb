@@ -68,7 +68,7 @@ function HomeContent() {
 
 
       {/* Brand Hero Section */}
-      <section className="min-h-screen py-24 sm:py-0 flex flex-col items-center justify-center p-4 relative z-10 bg-white dark:bg-000 overflow-hidden">
+      <section className="min-h-screen py-24 sm:py-0 flex flex-col items-center justify-center p-4 relative z-10 bg-white dark:bg-black overflow-hidden">
         {/* Abstract Background Elements */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-lime-400/20 rounded-full blur-[80px] sm:blur-[100px] animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-yellow-400/20 rounded-full blur-[80px] sm:blur-[100px] animate-pulse delay-1000" />
@@ -282,7 +282,7 @@ function HomeContent() {
                       <Package size={40} className="text-lime-600" />
                     </div>
                     <div>
-                      <h4 className="text-2xl font-bold">Your Brand Here</h4>
+                      <h4 className="text-2xl font-bold">CANZZY</h4>
                       <p className="text-white/80">Premium Indian Confectionery</p>
                     </div>
                   </div>

@@ -28,7 +28,6 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScroll>
             {children}
-            <ThemeToggle />
           </SmoothScroll>
         </ThemeProvider>
       </body>

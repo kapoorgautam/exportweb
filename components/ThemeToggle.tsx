@@ -12,10 +12,11 @@ export default function ThemeToggle() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
-            className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white dark:text-yellow-400 hover:bg-white/20 transition-colors"
+            className="p-2 rounded-full bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
             title="Toggle Theme"
+            aria-label="Toggle Theme"
         >
-            {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} className="text-gray-800" />}
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
         </motion.button>
     );
 }

@@ -16,17 +16,8 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
     const [loaded, setLoaded] = useState(false);
     const frameCount = product.frameCount;
 
-    // Mobile Detection
-    const [isMobile, setIsMobile] = useState(true); // Default to true (mobile-first safe)
-
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
+    // Mobile Detection Removed as per user request
+    const isMobile = false;
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -37,13 +28,8 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
     const endFrameIndex = frameCount - 1;
     const frameIndex = useTransform(scrollYProgress, [0, 1], [startFrameIndex, endFrameIndex]);
 
-    // Load images only if NOT mobile
+    // Load images always
     useEffect(() => {
-        if (isMobile) {
-            setLoaded(true); // Treat as loaded so fallback shows
-            return;
-        }
-
         const loadImages = async () => {
             const imgs: HTMLImageElement[] = [];
             const promises = [];
@@ -66,11 +52,11 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
         };
 
         loadImages();
-    }, [product.folderPath, frameCount, isMobile]);
+    }, [product.folderPath, frameCount]);
 
     useEffect(() => {
-        // Skip canvas logic on mobile
-        if (isMobile || !loaded || !canvasRef.current || images.length === 0) return;
+        // Run canvas logic on all devices
+        if (!loaded || !canvasRef.current || images.length === 0) return;
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
@@ -127,7 +113,7 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
             cancelAnimationFrame(rafId);
             resizeObserver.disconnect();
         };
-    }, [loaded, images, frameIndex, isMobile]);
+    }, [loaded, images, frameIndex]);
 
     // Static Image Fallback for Mobile (using last frame or product image)
     // We use a regular img tag for simplicity or the last frame
