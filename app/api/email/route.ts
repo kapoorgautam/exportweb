@@ -4,6 +4,11 @@ import nodemailer from 'nodemailer';
 export async function POST(request: Request) {
     const { type, data } = await request.json();
 
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        console.error('Missing environment variables: EMAIL_USER or EMAIL_PASS');
+        return NextResponse.json({ success: false, error: 'Server configuration error' }, { status: 500 });
+    }
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -101,8 +106,12 @@ export async function POST(request: Request) {
         }
 
         return NextResponse.json({ success: true });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Email send failed:', error);
-        return NextResponse.json({ success: false, error: 'Failed to send email' }, { status: 500 });
+        return NextResponse.json({
+            success: false,
+            error: error.message || 'Failed to send email',
+            details: error.response || 'No details'
+        }, { status: 500 });
     }
 }
