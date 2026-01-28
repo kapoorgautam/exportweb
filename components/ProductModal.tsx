@@ -155,7 +155,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
                                                 name="message"
                                                 required
                                                 rows={4}
-                                                defaultValue={`I am interested in learning more about the ${product.name} (${product.unit}). Please send me pricing and catalogue.`}
+                                                defaultValue={`I am interested in learning more about the ${product.name} (${product.buyNowSection.unit}). Please send me pricing and catalogue.`}
                                                 className="w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-lime-500 transition-colors resize-none"
                                             />
                                         </div>
