@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import ThemeToggle from "@/components/ThemeToggle";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function RootLayout({
   children,
@@ -24,7 +26,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.variable} antialiased`}>
         <ThemeProvider>
-          {children}
+          <SmoothScroll>
+            {children}
+            <ThemeToggle />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

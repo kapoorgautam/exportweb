@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ShoppingBag, Menu, X } from 'lucide-react';
+import { ShoppingBag, Menu, X, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
@@ -41,17 +41,17 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-8">
                         {[
                             // 'Shop'
-                         'Our Story', 'Flavors'].map((item) => (
-                            <a
-                                key={item}
-                                href={item === 'Flavors' ? '/flavors' : item === 'Our Story' ? '/our-story' 
-                                    // : item === 'Shop' ? '/shop'
-                                    : `/#${item.toLowerCase()}`}
-                                className="text-gray-700 dark:text-white/80 hover:text-lime-600 dark:hover:text-lime-400 transition-colors text-sm font-medium tracking-wide uppercase"
-                            >
-                                {item}
-                            </a>
-                        ))}
+                            'Our Story', 'Flavors'].map((item) => (
+                                <a
+                                    key={item}
+                                    href={item === 'Flavors' ? '/flavors' : item === 'Our Story' ? '/our-story'
+                                        // : item === 'Shop' ? '/shop'
+                                        : `/#${item.toLowerCase()}`}
+                                    className="text-gray-700 dark:text-white/80 hover:text-lime-600 dark:hover:text-lime-400 transition-colors text-sm font-medium tracking-wide uppercase"
+                                >
+                                    {item}
+                                </a>
+                            ))}
                         <a
                             href="/contact"
                             className="text-gray-700 dark:text-white/80 hover:text-lime-600 dark:hover:text-lime-400 transition-colors text-sm font-medium tracking-wide uppercase"
@@ -62,12 +62,17 @@ export default function Navbar() {
 
                     {/* Actions */}
                     <div className="flex items-center gap-4">
-                        <button className="hidden md:flex items-center gap-2 bg-lime-500 hover:bg-lime-400 text-black px-6 py-2 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(132,204,22,0.3)] hover:shadow-[0_0_30px_rgba(132,204,22,0.5)] transform hover:-translate-y-0.5">
-                            <span>Buy Candy</span>
-                            <ShoppingBag size={18} />
-                        </button>
+                        <a
+                            href="https://wa.me/919354502422"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hidden md:flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-2 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transform hover:-translate-y-0.5"
+                        >
+                            <span>WhatsApp</span>
+                            <MessageCircle size={18} />
+                        </a>
                         <button
-                            className="md:hidden text-white"
+                            className="md:hidden text-gray-900 dark:text-white"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         >
                             {mobileMenuOpen ? <X /> : <Menu />}
@@ -86,19 +91,25 @@ export default function Navbar() {
                     <div className="px-4 py-8 flex flex-col gap-6 items-center">
                         {[
                             // 'Shop'
-                             'Our Story', 'Flavors', 'Contact'].map((item) => (
-                            <a
-                                key={item}
-                                href={`#${item.toLowerCase()}`}
-                                className="text-xl text-white font-medium"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                {item}
-                            </a>
-                        ))}
-                        <button className="w-full bg-lime-500 text-black py-3 rounded-full font-bold mt-4">
-                            Buy Candy
-                        </button>
+                            'Our Story', 'Flavors', 'Contact'].map((item) => (
+                                <a
+                                    key={item}
+                                    href={`#${item.toLowerCase()}`}
+                                    className="text-xl text-white font-medium"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    {item}
+                                </a>
+                            ))}
+                        <a
+                            href="https://wa.me/919354502422"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full bg-[#25D366] text-white py-3 rounded-full font-bold mt-4 flex items-center justify-center gap-2"
+                        >
+                            <span>WhatsApp Us</span>
+                            <MessageCircle size={20} />
+                        </a>
                     </div>
                 </motion.div>
             )}

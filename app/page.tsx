@@ -10,7 +10,8 @@ import Footer from '@/components/Footer';
 import ProductCandyScroll from '@/components/ProductCandyScroll';
 import ProductTextOverlays from '@/components/ProductTextOverlays';
 
-import ThemeToggle from '@/components/ThemeToggle';
+
+
 
 function HomeContent() {
   const searchParams = useSearchParams();
@@ -38,7 +39,6 @@ function HomeContent() {
 
   return (
     <main className="bg-gray-50 dark:bg-black text-gray-900 dark:text-white selection:bg-lime-500 selection:text-white transition-colors duration-500">
-      <ThemeToggle />
       <Navbar />
 
       {/* Navigation Controls */}
