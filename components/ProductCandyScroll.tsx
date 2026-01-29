@@ -16,8 +16,19 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
     const [loaded, setLoaded] = useState(false);
     const frameCount = product.frameCount;
 
-    // Mobile Detection Removed as per user request
-    const isMobile = false;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            if (typeof window !== 'undefined') {
+                setIsMobile(window.innerWidth < 768);
+            }
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -28,8 +39,13 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
     const endFrameIndex = frameCount - 1;
     const frameIndex = useTransform(scrollYProgress, [0, 1], [startFrameIndex, endFrameIndex]);
 
-    // Load images always
+    // Load images only if NOT mobile
     useEffect(() => {
+        if (isMobile) {
+            setLoaded(true);
+            return;
+        }
+
         const loadImages = async () => {
             const imgs: HTMLImageElement[] = [];
             const promises = [];
@@ -52,17 +68,17 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
         };
 
         loadImages();
-    }, [product.folderPath, frameCount]);
+    }, [product.folderPath, frameCount, isMobile]);
 
     useEffect(() => {
-        // Run canvas logic on all devices
-        if (!loaded || !canvasRef.current || images.length === 0) return;
+        // Run canvas logic only if NOT mobile and loaded
+        if (isMobile || !loaded || !canvasRef.current || images.length === 0) return;
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const dpr = window.devicePixelRatio || 1;
+        const dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
         let rafId: number;
 
         const resizeCanvas = () => {
@@ -113,7 +129,7 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
             cancelAnimationFrame(rafId);
             resizeObserver.disconnect();
         };
-    }, [loaded, images, frameIndex]);
+    }, [loaded, images, frameIndex, isMobile]);
 
     // Static Image Fallback for Mobile (using last frame or product image)
     // We use a regular img tag for simplicity or the last frame

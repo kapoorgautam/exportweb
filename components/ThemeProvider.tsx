@@ -20,10 +20,14 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         const saved = localStorage.getItem('theme') as Theme;
         if (saved) {
             setTheme(saved);
-            document.documentElement.classList.toggle('dark', saved === 'dark');
+            if (typeof window !== 'undefined') {
+                document.documentElement.classList.toggle('dark', saved === 'dark');
+            }
         } else {
             // Default is now light, so ensure dark class is removed if no preference
-            document.documentElement.classList.remove('dark');
+            if (typeof window !== 'undefined') {
+                document.documentElement.classList.remove('dark');
+            }
         }
     }, []);
 
