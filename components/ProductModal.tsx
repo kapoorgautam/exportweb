@@ -177,6 +177,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
                                         </form>
                                     )}
                                 </div>
+                            </div>
                         </motion.div>
                     </motion.div>
                 </>
