@@ -54,7 +54,6 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
             {isOpen && (
                 <>
                     {/* Backdrop */}
-                    {/* Backdrop */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -177,6 +176,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
                                         </form>
                                     )}
                                 </div>
+                            </div>
                         </motion.div>
                     </motion.div>
                 </>
