@@ -128,7 +128,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
                                                 <CheckCircle size={32} />
                                             </div>
                                             <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Inquiry Sent!</h4>
-                                            <p className="text-gray-600 dark:text-gray-400 text-sm">We'll get back to you shortly.</p>
+                                            <p className="text-gray-600 dark:text-gray-400 text-sm">We&apos;ll get back to you shortly.</p>
                                         </div>
                                     ) : (
                                         <form onSubmit={handleSubmit} className="space-y-4">

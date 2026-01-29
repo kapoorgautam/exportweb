@@ -4,6 +4,7 @@ import { useScroll, useTransform, MotionValue } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Product } from '@/data/products';
 import BackgroundParticles from './BackgroundParticles';
+import NextImage from 'next/image';
 
 interface ProductCandyScrollProps {
     product: Product;
@@ -129,7 +130,7 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
             cancelAnimationFrame(rafId);
             resizeObserver.disconnect();
         };
-    }, [loaded, images, frameIndex, isMobile]);
+    }, [loaded, images, frameIndex, isMobile, frameCount]);
 
     // Static Image Fallback for Mobile (using last frame or product image)
     // We use a regular img tag for simplicity or the last frame
@@ -144,10 +145,13 @@ export default function ProductCandyScroll({ product }: ProductCandyScrollProps)
                 {isMobile ? (
                     // Mobile: Static Image
                     <div className="relative z-10 w-full h-full">
-                        <img
+                        <NextImage
                             src={staticImageSrc}
                             alt={product.name}
-                            className="w-full h-full object-cover"
+                            className="object-cover"
+                            fill
+                            sizes="100vw"
+                            priority
                         />
                     </div>
                 ) : (

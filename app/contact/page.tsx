@@ -58,7 +58,7 @@ export default function ContactPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6"
                     >
-                        Let's Talk <span className="text-lime-600 dark:text-lime-500">Candy</span>
+                        Let&apos;s Talk <span className="text-lime-600 dark:text-lime-500">Candy</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export default function ContactPage() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
                     >
-                        Whether you want to stock your shelves, customize a flavor for your event, or just say hello — we're all ears.
+                        Whether you want to stock your shelves, customize a flavor for your event, or just say hello — we&apos;re all ears.
                     </motion.p>
                 </div>
             </section>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                                 </div>
                                 <h3 className="text-2xl font-bold mb-2">Message Received!</h3>
                                 <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-xs">
-                                    We'll get back to you within 24 hours. Stay tangy!
+                                    We&apos;ll get back to you within 24 hours. Stay tangy!
                                 </p>
                                 <button
                                     onClick={() => setFormStatus('idle')}
@@ -230,7 +230,7 @@ export default function ContactPage() {
                                             <FlaskConical size={16} /> Flavor Lab
                                         </h5>
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                                            Describe the flavor profile you're looking for (e.g., "Spicy Guava" or "Sweet Tamarind"). Our chefs will work with you to create a prototype.
+                                            Describe the flavor profile you&apos;re looking for (e.g., &quot;Spicy Guava&quot; or &quot;Sweet Tamarind&quot;). Our chefs will work with you to create a prototype.
                                         </p>
                                     </div>
                                 )}

@@ -86,7 +86,7 @@ export default function OurStoryPage() {
                         <div className="order-1 md:order-2">
                             <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">Kitchen Experiments</h2>
                             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                                We didn't want "mango flavor". We wanted <strong>Kaccha Mango</strong>.
+                                We didn&apos;t want &quot;mango flavor&quot;. We wanted <strong>Kaccha Mango</strong>.
                                 We spent months sourcing real fruit extracts, experimenting with natural spices, and perfecting the balance between sun-dried tang and sugary delight.
                             </p>
                         </div>
